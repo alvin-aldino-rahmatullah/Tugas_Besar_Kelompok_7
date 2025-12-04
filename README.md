@@ -1,4 +1,4 @@
-# Tugas_Besar_Kelompor_7
+# Tugas_Besar_Kelompok_7
 Kelompok 7
 Anggota 
 1. Alvin Aldino Rahmatullah
