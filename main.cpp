@@ -2,14 +2,10 @@
 #include "iostream"
 using namespace std;
 
-main (){
-    string role = login();
-    if (role == "admin"){
-        adminMenu();
-    }
-    else if (role == "user"){
-        userMenu();
-    }
+
+int main() {
+    login();   
+    return 0;
 }
 
 void adminMenu(){
