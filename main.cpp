@@ -49,7 +49,7 @@ void adminMenu(){
         daftarPeminjam();
         break;
         case 2:
-        viewPeminjam();
+        daftarPeminjam();
         break;
         case 3:
         aktivasiUser();
