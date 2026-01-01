@@ -55,6 +55,3 @@ void daftarPeminjam() {
 }
 
 
-void viewPeminjam(){
-   cout << "View Peminjam dipilih"<< endl;
-}
