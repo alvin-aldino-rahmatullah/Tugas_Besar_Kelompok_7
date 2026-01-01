@@ -30,7 +30,6 @@ void aktivasiUser();
 void tampilkanUsers();
 
 void daftarPeminjam();
-void viewPeminjam();
 
 void lokasiPeminjaman();
 void jadwalPemakaian();
