@@ -54,4 +54,6 @@ void daftarPeminjam() {
     file.close();
 }
 
-
+void admin menu(){
+   
+}
