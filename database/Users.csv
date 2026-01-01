@@ -1,0 +1,3 @@
+﻿Id;username;password;role;status
+1;admin;admin123;admin;active
+2;user ;user123;user;active
