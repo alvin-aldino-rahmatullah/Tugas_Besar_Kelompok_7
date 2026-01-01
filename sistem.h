@@ -11,6 +11,15 @@ struct User {
     string role;
     string status;
 };
+struct Peminjaman {
+    int id;
+    string username;
+    string ruangan;
+    string hari;
+    string jam;
+    string alat;
+    string lokasi;
+};
 
 void login();
 void registerUser();
