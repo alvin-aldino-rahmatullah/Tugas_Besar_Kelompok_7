@@ -4,15 +4,38 @@ using namespace std;
 
 
 int main() {
-    login();   
-    return 0;
+    int pilihan;
+
+    while (true) {
+        cout << "=============================" << endl;
+        cout << "       SELAMAT DATANG  " << endl;
+        cout << "=============================" << endl;
+        cout << "1. Login" << endl;
+        cout << "2. Register" << endl;
+        cout << "3. Exit" << endl;
+        cout << "Pilih: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                login();
+                break;
+            case 2:
+                registerUser();
+                break;
+            case 3:
+                return 0;
+            default:
+                cout << "Pilihan tidak valid!" << endl;
+        }
+    }
 }
 
 void adminMenu(){
     int pilih;
     do {
         cout << "=============================" << endl;
-        cout << "   SELAMAT DATANG MENU ADMIN " << endl;
+        cout << " SELAMAT DATANG MENU ADMIN " << endl;
         cout << "=============================" << endl;
         cout << "1. Daftar Peminjam" << endl;
         cout << "2. View Peminjam" << endl;
