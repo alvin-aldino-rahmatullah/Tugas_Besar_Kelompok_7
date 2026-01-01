@@ -90,41 +90,58 @@ void editPeminjaman() {
         cout << "Tidak ada data peminjaman.\n";
         return;
     }
+
     cout << "\n========== DATA PEMINJAMAN ==========\n";
     for (const auto& p : data) {
         cout << "ID: " << p.id
-            << " | User: " << p.username
+             << " | User: " << p.username
              << " | Ruang: " << p.ruangan
              << " | Hari: " << p.hari
              << " | Jam: " << p.jam << endl;
     }
 
     int idCari;
-    cout << "\nMasukkan ID peminjaman yang ingin diubah: ";
+    cout << "\nMasukkan ID peminjaman: ";
     cin >> idCari;
 
-    bool ditemukan = false;
+    int aksi;
+    cout << "1. Edit Peminjaman\n";
+    cout << "2. Hapus Peminjaman\n";
+    cout << "Pilih aksi: ";
+    cin >> aksi;
     cin.ignore();
 
-    for (auto& p : data) {
-        if (p.id == idCari) {
+    bool ditemukan = false;
+
+    for (auto it = data.begin(); it != data.end(); ++it) {
+        if (it->id == idCari) {
             ditemukan = true;
 
-            cout << "\n=== INPUT DATA BARU ===\n";
-            cout << "Ruangan : ";
-            getline(cin, p.ruangan);
+            if (aksi == 1) {
+                cout << "\n=== INPUT DATA BARU ===\n";
+                cout << "Ruangan : ";
+                getline(cin, it->ruangan);
 
-            cout << "Hari    : ";
-            getline(cin, p.hari);
+                cout << "Hari    : ";
+                getline(cin, it->hari);
 
-            cout << "Jam     : ";
-            getline(cin, p.jam);
+                cout << "Jam     : ";
+                getline(cin, it->jam);
 
-            cout << "Alat    : ";
-            getline(cin, p.alat);
+                cout << "Alat    : ";
+                getline(cin, it->alat);
 
-            cout << "Lokasi  : ";
-            getline(cin, p.lokasi);
+                cout << "Lokasi  : ";
+                getline(cin, it->lokasi);
+            }
+            else if (aksi == 2) {
+                data.erase(it);
+                cout << "\nData peminjaman BERHASIL dihapus.\n";
+            }
+            else {
+                cout << "Pilihan tidak valid.\n";
+                return;
+            }
 
             break;
         }
@@ -149,5 +166,8 @@ void editPeminjaman() {
     }
 
     out.close();
-    cout << "\nData peminjaman BERHASIL diubah.\n";
+
+    if (aksi == 1) {
+        cout << "\nData peminjaman BERHASIL diubah.\n";
+    }
 }
