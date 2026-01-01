@@ -6,7 +6,6 @@
 
 using namespace std;
 
-/* ================= DAFTAR PEMINJAMAN ================= */
 void daftarPeminjam() {
     ifstream file("database/Peminjaman.csv");
 
@@ -56,7 +55,6 @@ void daftarPeminjam() {
     file.close();
 }
 
-/* ================= EDIT PEMINJAMAN ================= */
 void editPeminjaman() {
     ifstream file("database/Peminjaman.csv");
 
@@ -96,10 +94,10 @@ void editPeminjaman() {
     cout << "\n========== DATA PEMINJAMAN ==========\n";
     for (const auto& p : data) {
         cout << "ID: " << p.id
-             << " | User: " << p.username
-             << " | Ruang: " << p.ruangan
-             << " | Hari: " << p.hari
-             << " | Jam: " << p.jam << endl;
+    setw(15) << " | User: " << p.username
+    setw(15) << " | Ruang: " << p.ruangan
+    setw(15) << " | Hari: " << p.hari
+    setw(15) << " | Jam: " << p.jam << endl;
     }
 
     int idCari;
