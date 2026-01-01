@@ -1,8 +1,18 @@
 #ifndef SISTEM_H
 #define SISTEM_H
-#include "string"
+#include <string>
 
-std::string login();
+using namespace std;
+
+struct User {
+    int id;
+    string username;
+    string password;
+    string role;
+    string status;
+};
+
+void login();
 void adminMenu();
 void userMenu();
 void countdown(int seconds);
