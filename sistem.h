@@ -13,6 +13,7 @@ struct User {
 };
 
 void login();
+void registerUser();
 void adminMenu();
 void userMenu();
 void countdown(int seconds);
