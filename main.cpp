@@ -39,7 +39,8 @@ void adminMenu(){
         cout << "=============================" << endl;
         cout << "1. Daftar Peminjam" << endl;
         cout << "2. View Peminjam" << endl;
-        cout << "3. Logout" << endl;
+        cout << "3. Aktivasi" << endl;
+        cout << "4. Logout" << endl;
         cout << "Pilih: ";
         cin >> pilih;
         
@@ -51,10 +52,13 @@ void adminMenu(){
         viewPeminjam();
         break;
         case 3:
+        aktivasiUser();
+        break;
+        case 4:
         cout << "Logout berhasil." << endl;
         break;
     }
-    } while (pilih != 3);
+    } while (pilih != 4);
 }
 
 void userMenu(){

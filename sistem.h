@@ -17,6 +17,8 @@ void registerUser();
 void adminMenu();
 void userMenu();
 void countdown(int seconds);
+void aktivasiUser();
+void tampilkanUsers();
 
 void daftarPeminjam();
 void viewPeminjam();
