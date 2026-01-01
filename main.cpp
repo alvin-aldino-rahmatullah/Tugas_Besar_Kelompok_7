@@ -22,6 +22,7 @@ void adminMenu(){
         cout << "2. View Peminjam" << endl;
         cout << "3. Logout" << endl;
         cout << "Pilih: ";
+        cin >> pilih;
         
     switch (pilih){
         case 1: 
