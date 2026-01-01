@@ -38,7 +38,7 @@ void adminMenu(){
         cout << " SELAMAT DATANG MENU ADMIN " << endl;
         cout << "=============================" << endl;
         cout << "1. Daftar Peminjam" << endl;
-        cout << "2. View Peminjam" << endl;
+        cout << "2. Edit Peminjaman" << endl;
         cout << "3. Aktivasi" << endl;
         cout << "4. Logout" << endl;
         cout << "Pilih: ";
