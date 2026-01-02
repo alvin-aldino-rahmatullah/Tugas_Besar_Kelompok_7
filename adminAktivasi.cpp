@@ -93,6 +93,10 @@ void aktivasiUser() {
             cout << "Status saat ini: " << user.status << endl;
             cout << "Ubah status menjadi (active/inactive): ";
             cin >> user.status;
+            if (user.status != "active" && user.status != "inactive") {
+                cout << "Status tidak valid. Gunakan 'active' atau 'inactive'.\n";
+                return;
+            }
             break;
         }
     }
