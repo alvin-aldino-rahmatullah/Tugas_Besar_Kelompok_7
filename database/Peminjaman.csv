@@ -1,3 +1,3 @@
-3;ayam;105;rabu;13.00;-;IoT
-4;Alvin;106;Jumat;17.00;-;Rektorat
-1;yamal;304;senin;17.00;;DSP
+id:nama;ruangan;jam;lokasi
+4;Alvin;106;Jumat;17.00;Rektorat
+1;yamal;304;senin;17.00;DSP
