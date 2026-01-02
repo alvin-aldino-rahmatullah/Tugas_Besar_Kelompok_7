@@ -1,22 +1,30 @@
 #include "sistem.h"
 #include "iostream"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <limits>
 
 using namespace std;
 
-void lokasiPeminjaman(){
-      ifstream file("Peminjaman.csv");
+// ================= VOID LOKASI PEMINJAMAN =================
+void lokasiPeminjaman() {
+   ifstream file("database/Peminjaman.csv");
    if (!file.is_open()) {
       cout << "File Peminjaman.csv tidak ditemukan!\n";
       return;
    }
 
    string line;
-   getline(file, line); // skip header
+    getline(file, line); // skip header
+
+    // BERSIHKAN BUFFER DARI MENU
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
    string gedungInput, ruanganInput;
    cout << "Gedung: ";
-   cin >> gedungInput;
-   cin.ignore();
+   getline(cin, gedungInput);
 
    cout << "Ruangan: ";
    getline(cin, ruanganInput);
@@ -29,11 +37,11 @@ void lokasiPeminjaman(){
 
       getline(ss, id, ';');
       getline(ss, username, ';');
-      getline(ss, lokasi, ';');
       getline(ss, ruangan, ';');
       getline(ss, hari, ';');
       getline(ss, jam, ';');
       getline(ss, alat, ';');
+      getline(ss, lokasi, ';');
 
       if (ruangan == ruanganInput && lokasi == gedungInput) {
             terpakai = true;
@@ -42,17 +50,17 @@ void lokasiPeminjaman(){
    }
    file.close();
 
-   if (!terpakai) {
+   if (terpakai) {
       cout << "Ruangan " << ruanganInput
-            << " di gedung " << gedungInput
-            << " KOSONG dan bisa dipinjam.\n";
+         << " di gedung " << gedungInput
+         << " SEDANG DIPAKAI.\n";
    } else {
       cout << "Ruangan " << ruanganInput
-            << " di gedung " << gedungInput
-            << " SEDANG DIPAKAI.\n";
-      cout << "Silakan pilih ruangan lain.\n";
+         << " di gedung " << gedungInput
+         << " KOSONG dan bisa dipinjam.\n";
    }
 }
+
 void alatTambahan(){
    string namaAlat;
    int jumlah;
