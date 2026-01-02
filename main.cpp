@@ -68,16 +68,14 @@ void userMenu(){
         cout << "   SELAMAT DATANG MENU USER  " << endl;
         cout << "=============================" << endl;
         cout << "1. Lokasi Peminjaman" << endl;
-        cout << "2. Jadwal Pemakaian" << endl;
-        cout << "3. Alat Tambahan" << endl;
-        cout << "4. Logout" << endl;
+        cout << "2. Alat Tambahan" << endl;
+        cout << "3. Logout" << endl;
         cout << "Pilih: ";
         cin >> pilih;
 
     switch (pilih){
         case 1: 
         lokasiPeminjaman();
-        break;
         break;
         case 2:
         alatTambahan();
