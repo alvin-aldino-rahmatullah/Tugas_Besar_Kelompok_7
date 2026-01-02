@@ -63,7 +63,7 @@ void lokasiPeminjaman() {
    file.close();
 
    if (terpakai) {
-      cout << "❌ Ruangan sedang dipakai.\n";
+      cout << "Ruangan sedang dipakai.\n";
       return;
    }
 
@@ -72,10 +72,9 @@ void lokasiPeminjaman() {
       << p.hari << ";" << p.jam << ";" << p.alat << ";" << p.lokasi << endl;
    out.close();
 
-   cout << "✅ Peminjaman ruangan berhasil disimpan.\n";
+   cout << "Peminjaman ruangan berhasil disimpan.\n";
 }
 
-// ================= ALAT TAMBAHAN =================
 void alatTambahan() {
    ifstream file("database/Peminjaman.csv");
    if (!file.is_open()) {
@@ -125,7 +124,7 @@ void alatTambahan() {
    }
 
    if (!ditemukan) {
-      cout << "❌ Ruangan tidak ditemukan atau belum dipinjam.\n";
+      cout << "Ruangan tidak ditemukan atau belum dipinjam.\n";
       return;
    }
 
