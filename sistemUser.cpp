@@ -67,7 +67,7 @@ void lokasiPeminjaman() {
       return;
    }
 
-   ofstream out("Peminjaman.csv", ios::app);
+   ofstream out("database/Peminjaman.csv", ios::app);
    out << p.id << ";" << p.username << ";" << p.ruangan << ";"
       << p.hari << ";" << p.jam << ";" << p.alat << ";" << p.lokasi << endl;
    out.close();
@@ -77,7 +77,7 @@ void lokasiPeminjaman() {
 
 // ================= ALAT TAMBAHAN =================
 void alatTambahan() {
-   ifstream file("Peminjaman.csv");
+   ifstream file("database/Peminjaman.csv");
    if (!file.is_open()) {
       cout << "File Peminjaman.csv tidak ditemukan!\n";
       return;
@@ -129,12 +129,12 @@ void alatTambahan() {
       return;
    }
 
-   ofstream out("Peminjaman.csv");
+   ofstream out("database/Peminjaman.csv");
    for (int i = 0; i < n; i++)
       out << data[i] << endl;
    out.close();
 
-   cout << "✅ Alat tambahan berhasil ditambahkan.\n";
+   cout << "Alat tambahan berhasil ditambahkan.\n";
 }
 
 
