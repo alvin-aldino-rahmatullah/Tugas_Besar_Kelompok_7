@@ -32,7 +32,6 @@ void tampilkanUsers();
 void daftarPeminjam();
 void editPeminjaman();
 void lokasiPeminjaman();
-void jadwalPemakaian();
 void alatTambahan();
 
 #endif
