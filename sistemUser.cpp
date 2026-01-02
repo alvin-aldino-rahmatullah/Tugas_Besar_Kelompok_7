@@ -4,9 +4,50 @@
 using namespace std;
 
 void lokasiPeminjaman(){
-   cout << "Lokasi Peminjaman dipilih"<< endl;
-}
 
+   string line;
+   getline(file, line); // skip header
+
+   string gedungInput, ruanganInput;
+   cout << "Gedung: ";
+   cin >> gedungInput;
+   cin.ignore();
+
+   cout << "Ruangan: ";
+   getline(cin, ruanganInput);
+
+   bool terpakai = false;
+
+   while (getline(file, line)) {
+      stringstream ss(line);
+      string id, username, ruangan, hari, jam, alat, lokasi;
+
+      getline(ss, id, ';');
+      getline(ss, username, ';');
+      getline(ss, lokasi, ';');
+      getline(ss, ruangan, ';');
+      getline(ss, hari, ';');
+      getline(ss, jam, ';');
+      getline(ss, alat, ';');
+
+      if (ruangan == ruanganInput && lokasi == gedungInput) {
+            terpakai = true;
+            break;
+      }
+   }
+   file.close();
+
+   if (!terpakai) {
+      cout << "Ruangan " << ruanganInput
+            << " di gedung " << gedungInput
+            << " KOSONG dan bisa dipinjam.\n";
+   } else {
+      cout << "Ruangan " << ruanganInput
+            << " di gedung " << gedungInput
+            << " SEDANG DIPAKAI.\n";
+      cout << "Silakan pilih ruangan lain.\n";
+   }
+}
 void alatTambahan(){
    string namaAlat;
    int jumlah;
