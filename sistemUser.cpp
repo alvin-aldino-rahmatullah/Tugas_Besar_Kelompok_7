@@ -16,13 +16,22 @@ void lokasiPeminjaman() {
    string line;
    getline(file, line); 
 
+   int lastId = 0;
+
+   while (getline(file, line)) {
+      stringstream ss(line);
+      string sid;
+      getline(ss, sid, ';');
+      lastId = stoi(sid);
+   }
+   file.close();
+
+   int newId = lastId + 1;
+
    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
    Peminjaman p;
-
-   cout << "ID       : ";
-   cin >> p.id;
-   cin.ignore();
+   p.id = newId;
 
    cout << "Username : ";
    getline(cin, p.username);
@@ -39,15 +48,18 @@ void lokasiPeminjaman() {
    cout << "Lokasi   : ";
    getline(cin, p.lokasi);
 
-   bool terpakai = false;
+   p.alat = "-";
 
+   file.open("database/Peminjaman.csv");
+   getline(file, line);
+
+   bool terpakai = false;
    while (getline(file, line)) {
       stringstream ss(line);
       Peminjaman cek;
-
       string sid;
+
       getline(ss, sid, ';');
-      cek.id = stoi(sid);
       getline(ss, cek.username, ';');
       getline(ss, cek.ruangan, ';');
       getline(ss, cek.hari, ';');
@@ -72,7 +84,8 @@ void lokasiPeminjaman() {
       << p.hari << ";" << p.jam << ";" << p.alat << ";" << p.lokasi << endl;
    out.close();
 
-   cout << "Peminjaman ruangan berhasil disimpan.\n";
+   cout << "Peminjaman berhasil disimpan.\n";
+   cout << "ID Peminjaman: " << p.id << endl;
 }
 
 void alatTambahan() {
@@ -85,17 +98,17 @@ void alatTambahan() {
    string data[200];
    int n = 0;
 
-   while (getline(file, data[n])) n++;
+   while (getline(file, data[n])) {
+      n++;
+   }
    file.close();
 
    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-   string ruanganInput, alatInput;
-   cout << "Ruangan : ";
-   getline(cin, ruanganInput);
-
-   cout << "Alat tambahan : ";
-   getline(cin, alatInput);
+   int idInput;
+   cout << "Masukkan ID Peminjaman: ";
+   cin >> idInput;
+   cin.ignore();
 
    bool ditemukan = false;
 
@@ -113,28 +126,43 @@ void alatTambahan() {
       getline(ss, p.alat, ';');
       getline(ss, p.lokasi, ';');
 
-      if (p.ruangan == ruanganInput) {
-            p.alat = alatInput;
+      if (p.id == idInput) {
+            ditemukan = true;
+
+            cout << "\nData Peminjaman:\n";
+            cout << "Username : " << p.username << endl;
+            cout << "Ruangan  : " << p.ruangan << endl;
+            cout << "Lokasi   : " << p.lokasi << endl;
+            cout << "Alat lama: " << p.alat << endl;
+
+            string alatBaru;
+            cout << "\nMasukkan alat tambahan: ";
+            getline(cin, alatBaru);
+
+
+            if (p.alat == "-" || p.alat.empty()) {
+               p.alat = alatBaru;
+            } else {
+               p.alat = p.alat + ", " + alatBaru;
+            }
+
             data[i] = to_string(p.id) + ";" + p.username + ";" +
                p.ruangan + ";" + p.hari + ";" + p.jam + ";" +
                p.alat + ";" + p.lokasi;
-            ditemukan = true;
+
+            cout << "Alat tambahan berhasil ditambahkan.\n";
             break;
       }
    }
 
    if (!ditemukan) {
-      cout << "Ruangan tidak ditemukan atau belum dipinjam.\n";
+      cout << "ID peminjaman tidak ditemukan.\n";
       return;
    }
 
    ofstream out("database/Peminjaman.csv");
-   for (int i = 0; i < n; i++)
+   for (int i = 0; i < n; i++) {
       out << data[i] << endl;
+   }
    out.close();
-
-   cout << "Alat tambahan berhasil ditambahkan.\n";
 }
-
-
-
