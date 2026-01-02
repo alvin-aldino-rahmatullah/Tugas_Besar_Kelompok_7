@@ -21,6 +21,21 @@ struct Peminjaman {
     string lokasi;
 };
 
+struct RoleNode {
+    string role;
+    int level;
+    RoleNode* left;
+    RoleNode* right;
+
+    RoleNode(string r, int l);
+};
+
+RoleNode* buildRoleTree();
+int getRoleLevel(RoleNode* root, const string& role);
+
+void superAdminMenu(const User& currentUser);
+
+
 void login();
 void registerUser();
 void adminMenu();
