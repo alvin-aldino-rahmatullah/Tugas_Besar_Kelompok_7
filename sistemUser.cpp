@@ -4,6 +4,11 @@
 using namespace std;
 
 void lokasiPeminjaman(){
+      ifstream file("Peminjaman.csv");
+   if (!file.is_open()) {
+      cout << "File Peminjaman.csv tidak ditemukan!\n";
+      return;
+   }
 
    string line;
    getline(file, line); // skip header
