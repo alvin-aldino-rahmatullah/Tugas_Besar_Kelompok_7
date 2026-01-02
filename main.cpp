@@ -78,17 +78,15 @@ void userMenu(){
         case 1: 
         lokasiPeminjaman();
         break;
-        case 2:
-        jadwalPemakaian();
         break;
-        case 3:
+        case 2:
         alatTambahan();
         break;
-        case 4:
+        case 3:
         cout << "Logout berhasil." << endl;
         break;
     }
-    } while (pilih != 4);
+    } while (pilih != 3);
 }
 
 
