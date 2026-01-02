@@ -88,6 +88,8 @@ void login() {
                 adminMenu();
             } else if (currentUser.role == "user") {
                 userMenu();
+            } else if (currentUser.role == "superadmin") {
+                superAdminMenu(currentUser);
             }
         }
         else {
