@@ -1,3 +1,4 @@
-id:nama;ruangan;jam;lokasi
+ID;NAMA;RUANGAN;HARI;JAM;ALAT;GEDUNG
 4;Alvin;106;Jumat;17.00;Rektorat
 1;yamal;304;senin;17.00;DSP
+2;ahmad;405;senin;12.00;Proyektor;DSP
