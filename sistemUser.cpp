@@ -8,7 +8,26 @@ void lokasiPeminjaman(){
 }
 
 void alatTambahan(){
-   cout << "Alat Tambahan dipilih"<< endl;
+   string namaAlat;
+   int jumlah;
+
+   cout << "\n=== TAMBAH ALAT PINJAMAN ===\n";
+   cout << "Nama alat   : ";
+   cin.ignore();
+   getline(cin, namaAlat);
+
+   cout << "Jumlah alat : ";
+   cin >> jumlah;
+
+   if (jumlah <= 0) {
+      cout << "Jumlah tidak valid!\n";
+      return;
+   }
+
+   cout << "\nAlat berhasil ditambahkan!\n";
+   cout << "Detail Peminjaman:\n";
+   cout << "- Alat   : " << namaAlat << endl;
+   cout << "- Jumlah : " << jumlah << endl;
 }
 
 void jadwalPemakaian(){
